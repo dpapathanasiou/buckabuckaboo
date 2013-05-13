@@ -41,7 +41,7 @@ Depending on the web server software you are using and how it is configured, you
 Source
 ------
 
-The only files in the buckabuckaboo folder you need to deploy to your server are the '1x1.gif' and 'buckabuckaboo.min.js' files, the latter being a minified version of the buckabuckaboo.js source file (using Google's <a href="https://code.google.com/p/closure-compiler/" target="_blank">Closure Compiler</a>.
+The only files in the buckabuckaboo folder you need to deploy to your server are the '1x1.gif' and 'buckabuckaboo.min.js' files, the latter being a minified version of the buckabuckaboo.js source file (using Google's <a href="https://code.google.com/p/closure-compiler/" target="_blank">Closure Compiler</a>).
 
 Example
 -------
@@ -70,3 +70,9 @@ Open a web browser and visit '127.0.0.1:8000'. You should see the test page, com
 127.0.0.1 - - [12/May/2013 19:31:47] "GET /buckabuckaboo/1x1.gif?x=1070&y=203&w=1366&h=682&src=example.com HTTP/1.1" 200 -
 ```
 
+Acknowledgements
+----------------
+
+* <a href="https://twitter.com/jeresig" target="_blank">John Resig</a> for his <a href="http://ejohn.org/projects/flexible-javascript-events/" target="_blank">cross-browser event listener</a> example
+* <a href="http://andylangton.co.uk" target="_blank">Andy Langton</a> for his <a href="http://andylangton.co.uk/blog/development/get-viewport-size-width-and-height-javascript" target="_blank">cross-browser viewport height and width calculator</a>
+* <a href="https://twitter.com/paultoo" target="_blank">Paul Buchheit</a> for the javascript <a href="https://developer.mozilla.org/en-US/docs/DOM/HTMLImageElement" target="_blank">Image object</a> hack which gets around the <a href="https://en.wikipedia.org/wiki/Same_origin_policy" target="_blank">same origin restriction</a>, based on the <a href="https://news.ycombinator.com/item?id=4239118" target="_blank">Hacker News voting code</a> he wrote for <a href="https://news.ycombinator.com/" target="_blank">https://news.ycombinator.com/</a> 
