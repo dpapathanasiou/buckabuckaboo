@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Bucka Bucka Boo: web page test</title>
+</head>
+<body>
+
+  <h1><a href="https://github.com/dpapathanasiou/buckabuckaboo" target="_blank">Bucka Bucka Boo</a>: web page example</h1>
+  <h2>Try moving your mouse, mouse, baby</h2>
+  <div style="font-style:italic">Placeholder images courtesy of <a href="http://nicenicejpg.com/" target="_blank">Nice Nice JPG</a></div>
+
+  <table>
+    <tr>
+      <td><div style="padding:1em"><img src="http://nicenicejpg.com/450/300" /></div></td>
+      <td><div style="padding:1em"><img src="http://nicenicejpg.com/300" /></div></td>
+    </tr>
+  </table>
+
+  <div>This is an example of how to use the <a href="https://github.com/dpapathanasiou/buckabuckaboo" target="_blank">Bucka Bucka Boo mouse tracking script</a> in a web site page (check the <a href="https://github.com/dpapathanasiou/buckabuckaboo/blob/master/README.md" target="_blank">README</a> for usage details)</div>
+
+<script src="http://127.0.0.1:8000/buckabuckaboo/buckabuckaboo.min.js"></script>
+<script type="text/javascript">
+    BUCKA.vars.srvr = 'http://127.0.0.1:8000/buckabuckaboo';
+    BUCKA.vars.src  = 'example.com';
+    BUCKA.addEvent(BUCKA.vars.g,"mouseover",BUCKA.mousemover);
+</script>
+
+</body>
+</html>
