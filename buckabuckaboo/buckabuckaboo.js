@@ -24,7 +24,6 @@ var BUCKA = {};
  * @property e document element
  * @property g document body
  * @property ping Image object (used to transmit mouse position data to the server)
- * @property src  specific url of the site being tracked, determined by the current window.location
  * @property srvr url to the 1x1 image used by ping
  */
 BUCKA.vars = {
@@ -34,7 +33,6 @@ BUCKA.vars = {
 BUCKA.vars.e = BUCKA.vars.d.documentElement;
 BUCKA.vars.g = BUCKA.vars.d.getElementsByTagName('body')[0];
 BUCKA.vars.ping = new Image();
-BUCKA.vars.src  = encodeURIComponent(window.location);
 BUCKA.vars.srvr = null;
 
 /**
@@ -67,14 +65,15 @@ BUCKA.mousemover = function (evt) {
 	var x = evt.pageX,
 	    y = evt.pageY,
 	    w = BUCKA.vars.w.innerWidth || BUCKA.vars.e.clientWidth || BUCKA.vars.g.clientWidth,
-	    h = BUCKA.vars.w.innerHeight|| BUCKA.vars.e.clientHeight|| BUCKA.vars.g.clientHeight;
+	    h = BUCKA.vars.w.innerHeight|| BUCKA.vars.e.clientHeight|| BUCKA.vars.g.clientHeight,
+	  src = encodeURIComponent(window.location);
 	if( x == null && evt.clientX != null ) {
 	    x = evt.clientX + (BUCKA.vars.e && BUCKA.vars.e.scrollLeft || BUCKA.vars.g && BUCKA.vars.g.scrollLeft || 0)
 		- (BUCKA.vars.e && BUCKA.vars.e.clientLeft || BUCKA.vars.g && BUCKA.vars.g.clientLeft || 0);
 	    y = evt.clientY + (BUCKA.vars.e && BUCKA.vars.e.scrollTop  || BUCKA.vars.g && BUCKA.vars.g.scrollTop  || 0)
 		- (BUCKA.vars.e && BUCKA.vars.e.clientTop  || BUCKA.vars.g && BUCKA.vars.g.clientTop  || 0);
 	}
-	BUCKA.vars.ping.src = BUCKA.vars.srvr+'/1x1.gif?x='+x+'&y='+y+'&w='+w+'&h='+h+'&src='+BUCKA.vars.src;
+	BUCKA.vars.ping.src = BUCKA.vars.srvr+'/1x1.gif?x='+x+'&y='+y+'&w='+w+'&h='+h+'&src='+src;
     }
 }
 
