@@ -13,7 +13,9 @@ Usage
 
 Install the buckabuckaboo folder from this repo on a web server you control, and make the folder contents publically-accessible.
 
-On every web page in which you wish to track visitor mouse movements, add this code in the document body, replacing "http://www.example.org/" with the fully qualified domain name and path of your server which hosts the buckabuckaboo folder:
+On every web page in which you wish to track visitor mouse movements, add this code in the document body.
+
+Replace the script src with the fully qualified domain name and path of your server which hosts the buckabuckaboo.min.js script, and, into the BUCKA.init() function, pass the fully qualified domain name and path to where your server hosts the '1x1.gif' file (if you import the folder to your server as-is, they will be the same path, as is shown here):
 
 ```
 <script src="http://www.example.org/buckabuckaboo/buckabuckaboo.min.js"></script>
@@ -26,9 +28,7 @@ The site being monitored and the site hosting the buckabuckaboo folder can be di
 
 The web server logs will contain entries containing references to the '1x1.gif' file, with trailing parameters containing the (x,y) coordinates of each mouse movement, along with the browser window width and height (h,w) sizes, and the specific location from where the mouse movements were obtained as an encoded url (src).
 
-Thus, you can project the specific coordinates onto any size snapshot of the page in question. 
-
-Here's an example:
+Thus, you can project the specific coordinates onto any size snapshot of the page in question:
 
 ```
 "GET /buckabuckaboo/1x1.gif?x=781&y=25&w=1366&h=682&src=http%3A%2F%2Fexample.com HTTP/1.1" 200
@@ -46,7 +46,7 @@ The only files in the buckabuckaboo folder you need to deploy to your server are
 Example
 -------
 
-Open a terminal and use python's <a href="http://www.linuxjournal.com/content/tech-tip-really-simple-http-server-python" target="_blank">Simple HTTP Server</a> to test the files in this repo:
+To test the files in this repo in your local environment, open a terminal and use python's <a href="http://www.linuxjournal.com/content/tech-tip-really-simple-http-server-python" target="_blank">Simple HTTP Server</a>:
 
 ```
 $ python -m SimpleHTTPServer
@@ -69,6 +69,20 @@ Open a web browser and visit '127.0.0.1:8000'. You should see the test page, com
 127.0.0.1 - - [12/May/2013 19:31:47] "GET /buckabuckaboo/1x1.gif?x=1119&y=224&w=1366&h=682&src=http%3A%2F%2Fexample.com HTTP/1.1" 200 -
 127.0.0.1 - - [12/May/2013 19:31:47] "GET /buckabuckaboo/1x1.gif?x=1070&y=203&w=1366&h=682&src=http%3A%2F%2Fexample.com HTTP/1.1" 200 -
 ```
+
+Using the Data
+--------------
+
+While there are many different ways to analyze the data, one interesting thing to do is create an animated sequence of lines charting mouse movements by different web site visitors.
+
+This mimics how each person "saw" your page, and where their eyes were focused.
+
+Here are some sample videos using a selection of sanitized data obtained from two different web pages both using this plugin:
+
+* <a href="http://www.youtube.com/watch?v=PziyvSHgkBs" target="_blank">eBookBurn.com</a>
+* <a href="http://www.youtube.com/watch?v=n6npG9NHg7E" target="_blank">Macaronics.com</a>
+
+These animations were created as plots in <a href="http://www.r-project.org/" target="_blank">R</a>, using the <a href="https://gist.github.com/dpapathanasiou/5818427" target="_blank">code in this gist</a>, and recorded as video using <a href="http://tech.journalism.cuny.edu/documentation/capture-video-with-quicktime-screen-recording/" target="_blank">QuickTime's Screen Recording</a> feature.
 
 Acknowledgements
 ----------------
